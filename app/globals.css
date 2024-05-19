@@ -2,32 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  nav {
+    @apply absolute top-0 left-0 right-0 z-50 flex justify-between w-full px-4 py-4 mx-auto max-w-7xl;
+  }
+
+  nav img {
+    @apply h-[35px] md:h-[40px] lg:h-[50px];
+  }
+  nav ul {
+    @apply items-center hidden gap-6 md:flex;
+  }
+
+  nav ul .login {
+    @apply px-6 py-3 font-bold text-white rounded-md bg-primary;
+  }
+
+  .container {
+    @apply w-full px-4 mx-auto max-w-7xl;
+  }
+
+  /* Input */
+  select {
+    @apply w-full px-4 py-2 bg-transparent border rounded-md border-black/20;
+  }
+
+  input[type="date"] {
+    @apply w-full px-4 py-2 bg-transparent border rounded-md border-black/20;
+  }
+
+  .search-btn {
+    @apply block px-8 py-3 mx-auto font-bold text-white transition-all -translate-y-1/2 rounded-md shadow-lg bg-primary hover:shadow-primary/50 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply block px-8 py-2 font-bold text-white transition-all rounded-md shadow-lg bg-primary hover:shadow-primary/50 active:scale-95;
+  }
+
+  #searchParams {
+    @apply bg-white w-full h-full py-10 lg:py-12 px-6 lg:px-8 rounded-xl border border-black/10 shadow-lg lg:flex items-center [&>*]:flex-1 [&>*]:px-4 [&>div>span]:mb-3 space-y-5 lg:space-y-0;
+  }
+
+  #searchParams span {
+    @apply font-bold;
+  }
+
+  .imageshowCase {
+    @apply h-[400px];
+  }
+
+  .imageshowCase img {
+    @apply object-cover w-full h-full min-w-full min-h-full;
+  }
+
+  .login-form {
+    @apply flex flex-col my-6;
+  }
+
+  .login-form div {
+    @apply flex flex-col gap-2 my-2;
+  }
+
+  .login-form input {
+    @apply px-4 py-2 border rounded-md border-black/20;
+  }
+
+  input[type="checkbox"] {
+    @apply mx-1;
   }
 }
