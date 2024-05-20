@@ -2,7 +2,7 @@ const PaymentForm = () => {
   return (
     <form className="my-8">
       <div className="my-4 space-y-2">
-        <label htmlFor="name" className="block">
+        <label htmlhtmlFor="name" className="block">
           Name
         </label>
         <input
@@ -13,7 +13,7 @@ const PaymentForm = () => {
       </div>
 
       <div className="my-4 space-y-2">
-        <label htmlFor="email" className="block">
+        <label htmlhtmlFor="email" className="block">
           Email
         </label>
         <input
@@ -38,7 +38,7 @@ const PaymentForm = () => {
       </div>
 
       <div className="my-4 space-y-2">
-        <label htmlFor="card" className="block">
+        <label htmlhtmlFor="card" className="block">
           Card Number
         </label>
         <input
@@ -49,7 +49,7 @@ const PaymentForm = () => {
       </div>
 
       <div className="my-4 space-y-2">
-        <label htmlFor="expiry" className="block">
+        <label htmlhtmlFor="expiry" className="block">
           Expiry Date
         </label>
         <input
@@ -60,7 +60,7 @@ const PaymentForm = () => {
       </div>
 
       <div className="my-4 space-y-2">
-        <label htmlFor="cvv" className="block">
+        <label htmlhtmlFor="cvv" className="block">
           CVV
         </label>
         <input

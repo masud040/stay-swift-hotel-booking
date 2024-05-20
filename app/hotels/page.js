@@ -1,8 +1,11 @@
+import { getAllHotels } from "@/db/queries";
 import HotelList from "../components/hotel/HotelList";
 import Filter from "../components/search/Filter";
 import Search from "../components/search/Search";
 
-export default function HotelListPage() {
+export default async function HotelListPage() {
+  const allHotels = await getAllHotels();
+  console.log(allHotels);
   return (
     <>
       <section className="bg-[url('/hero-bg.jpg')] bg-cover bg-no-repeat bg-center pt-[100px] pb-[60px]">
