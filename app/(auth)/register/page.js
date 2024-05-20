@@ -1,5 +1,5 @@
-import RegistrationForm from "../components/auth/RegistrationForm";
-import SocialLogins from "../components/auth/SocialLogins";
+import RegistrationForm from "@/app/components/auth/RegistrationForm";
+import SocialLogins from "@/app/components/auth/SocialLogins";
 
 export default function RegisterPage() {
   return (
