@@ -15,7 +15,7 @@
   }
 
   nav ul .login {
-    @apply px-6 py-3 font-bold text-white rounded-md bg-primary;
+    @apply px-6 py-2.5 font-bold text-white rounded-md bg-primary;
   }
 
   .container {
