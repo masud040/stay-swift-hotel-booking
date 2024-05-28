@@ -1,11 +1,11 @@
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import bcrypt from "bcryptjs";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import connectMongo from "./db/connectMongo";
 import clientPromise from "./db/mongoClientPromise";
 import { UserModel } from "./models/user-model";
-
 export const {
   handlers: { GET, POST },
   signIn,
@@ -33,7 +33,10 @@ export const {
           }).lean();
 
           if (user) {
-            const isMatch = user?.password === credentials.password;
+            const isMatch = await bcrypt.compare(
+              credentials.password,
+              user.password
+            );
 
             if (isMatch) {
               return user;
