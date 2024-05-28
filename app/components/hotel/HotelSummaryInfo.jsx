@@ -1,11 +1,9 @@
-import { getRatingsForAHotel } from "@/db/queries";
-import Reviews from "./Reviews";
+import RatingSection from "./RatingSection";
+import ReviewsSection from "./ReviewsSection";
 
 const HotelSummaryInfo = async ({ fromListPage, hotelInfo }) => {
   const { id, name, city, highRate, lowRate, propertyCategory, thumbNailUrl } =
     hotelInfo || {};
-
-  const ratings = await getRatingsForAHotel(id);
 
   return (
     <>
@@ -17,11 +15,9 @@ const HotelSummaryInfo = async ({ fromListPage, hotelInfo }) => {
         </h2>
         <p>📍 {city}</p>
         <div className="flex items-center gap-2 my-4">
-          <div className="bg-primary w-[35px] h-[35px] rounded-sm text-white grid place-items-center font-bold">
-            5.4
-          </div>
-          <span className="font-medium">Very Good</span>
-          <Reviews hotelId={id} />
+          <RatingSection hotelId={id} />
+
+          <ReviewsSection hotelId={id} />
         </div>
         <div>
           <span className="px-1 bg-yellow-300 rounded-md">
