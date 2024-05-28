@@ -12,8 +12,6 @@ const ratingSchema = new Schema({
   rating: {
     required: true,
     type: Number,
-    min: 1,
-    max: 5,
   },
 });
 

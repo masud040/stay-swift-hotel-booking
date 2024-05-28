@@ -7,5 +7,6 @@ export function replaceMongoId(array) {
       };
     })
     .map(({ _id, ...rest }) => rest);
+
   return mappedArray;
 }

@@ -1,4 +1,4 @@
-const { Schema, default: mongoose } = require("mongoose");
+const { Schema, mongoose } = require("mongoose");
 
 const reviewSchema = new Schema({
   hotelId: {
@@ -16,4 +16,4 @@ const reviewSchema = new Schema({
 });
 
 export const ReviewModel =
-  mongoose.models.reviews ?? mongoose.models("reviews", reviewSchema);
+  mongoose.models.reviews ?? mongoose.model("reviews", reviewSchema);
