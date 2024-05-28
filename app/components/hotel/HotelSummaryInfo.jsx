@@ -1,3 +1,4 @@
+import Link from "next/link";
 import RatingSection from "./RatingSection";
 import ReviewsSection from "./ReviewsSection";
 
@@ -32,7 +33,9 @@ const HotelSummaryInfo = async ({ fromListPage, hotelInfo }) => {
         </h2>
         <p className="text-right ">Per Night for 4 Rooms</p>
         {fromListPage ? (
-          <button className="btn-primary ">Details</button>
+          <Link className="btn-primary" href={`hotels/${id}`}>
+            Details
+          </Link>
         ) : (
           <button className="btn-primary ">Book</button>
         )}

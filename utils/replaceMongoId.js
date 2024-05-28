@@ -1,12 +1,4 @@
-export function replaceMongoId(array) {
-  const mappedArray = array
-    .map((item) => {
-      return {
-        id: item._id.toString(),
-        ...item,
-      };
-    })
-    .map(({ _id, ...rest }) => rest);
-
-  return mappedArray;
+export function replaceMongoId(obj) {
+  const { _id, ...updatedObj } = { id: obj._id.toString(), ...obj };
+  return updatedObj;
 }

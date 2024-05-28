@@ -1,6 +1,7 @@
 import { RatingModel } from "@/models/rating-model";
 import { ReviewModel } from "@/models/review-model";
 import { replaceMongoId } from "@/utils/replaceMongoId";
+import { replaceMongoIdArray } from "@/utils/replaceMongoIdArray";
 
 const { HotelModel } = require("@/models/hotel-model");
 const { default: connectMongo } = require("../connectMongo");
@@ -18,7 +19,7 @@ async function getAllHotels() {
     ])
     .lean();
 
-  return replaceMongoId(hotels);
+  return replaceMongoIdArray(hotels);
 }
 
 async function getReviewsForAHotel(hotelId) {
@@ -27,13 +28,21 @@ async function getReviewsForAHotel(hotelId) {
     hotelId: hotelId,
   });
 
-  return replaceMongoId(reviews);
+  return replaceMongoIdArray(reviews);
 }
 async function getRatingsForAHotel(hotelId) {
   const ratings = await RatingModel.find({
     hotelId: hotelId,
   }).lean();
-  return replaceMongoId(ratings);
+  return replaceMongoIdArray(ratings);
 }
 
-export { getAllHotels, getRatingsForAHotel, getReviewsForAHotel };
+async function getHotelById(hotelId) {
+  await connectMongo();
+  const hotel = await HotelModel.findOne({
+    _id: hotelId,
+  }).lean();
+  return replaceMongoId(hotel);
+}
+
+export { getAllHotels, getHotelById, getRatingsForAHotel, getReviewsForAHotel };
