@@ -9,7 +9,7 @@ export default async function HotelDetailsPage({ params: { id } }) {
   return (
     <>
       <Summary hotelInfo={hotelInfo} />
-      <Gallery gallery={hotelInfo?.gallery} />
+      <Gallery gallery={hotelInfo?.gallery} hotelId={id} />
       <Overview overview={hotelInfo?.overview} />
     </>
   );

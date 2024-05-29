@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Gallery = ({ gallery }) => {
+const Gallery = ({ gallery, hotelId }) => {
   const newGallery = [...gallery];
   newGallery.shift();
   return (

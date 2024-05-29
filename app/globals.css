@@ -35,6 +35,10 @@
     @apply block px-8 py-3 mx-auto font-bold text-white transition-all -translate-y-1/2 rounded-md shadow-lg bg-primary hover:shadow-primary/50 active:scale-95;
   }
 
+  .search-btn:disabled {
+    @apply bg-gray-400;
+  }
+
   .btn-primary {
     @apply block px-8 py-2 font-bold text-white transition-all rounded-md shadow-lg bg-primary hover:shadow-primary/50 active:scale-95;
   }
