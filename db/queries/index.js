@@ -23,7 +23,7 @@ async function getAllHotels(destination, checkin, checkout) {
     .lean();
   let allHotels = hotelByDestinaiton;
   if (checkin && checkout) {
-    const data = await Promise.all(
+    allHotels = await Promise.all(
       allHotels.map(async (hotel) => {
         const found = await findBooking(hotel._id, checkin, checkout);
         if (found) {
@@ -34,13 +34,11 @@ async function getAllHotels(destination, checkin, checkout) {
         return hotel;
       })
     );
-    console.log(data);
   }
 
   return replaceMongoIdArray(allHotels);
 }
 async function findBooking(hotelId, checkin, checkout) {
-  await connectMongo();
   const matches = await BookingModel.find({
     hotelId: hotelId.toString(),
   }).lean();

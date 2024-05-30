@@ -2,9 +2,26 @@ import Link from "next/link";
 import RatingSection from "./RatingSection";
 import ReviewsSection from "./ReviewsSection";
 
-const HotelSummaryInfo = async ({ fromListPage, hotelInfo }) => {
-  const { id, name, city, highRate, lowRate, propertyCategory, thumbNailUrl } =
-    hotelInfo || {};
+const HotelSummaryInfo = async ({
+  fromListPage,
+  hotelInfo,
+  checkin,
+  checkout,
+}) => {
+  const {
+    id,
+    name,
+    city,
+    highRate,
+    lowRate,
+    propertyCategory,
+    thumbNailUrl,
+    isBooked,
+  } = hotelInfo || {};
+  let params = "";
+  if (checkin && checkout) {
+    params = `?checkin=${checkin}&checkout=${checkout}`;
+  }
 
   return (
     <>
@@ -19,6 +36,7 @@ const HotelSummaryInfo = async ({ fromListPage, hotelInfo }) => {
           <RatingSection hotelId={id} />
 
           <ReviewsSection hotelId={id} />
+          {isBooked && <span>Sold Out</span>}
         </div>
         <div>
           <span className="px-1 bg-yellow-300 rounded-md">
@@ -33,7 +51,7 @@ const HotelSummaryInfo = async ({ fromListPage, hotelInfo }) => {
         </h2>
         <p className="text-right ">Per Night for 4 Rooms</p>
         {fromListPage ? (
-          <Link className="btn-primary" href={`hotels/${id}`}>
+          <Link className="btn-primary" href={`hotels/${id}${params}`}>
             Details
           </Link>
         ) : (
