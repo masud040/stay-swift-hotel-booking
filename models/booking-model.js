@@ -1,4 +1,5 @@
-const { Schema, default: mongoose } = require("mongoose");
+import { ObjectId } from "mongodb";
+import mongoose, { Schema } from "mongoose";
 
 const bookingSchema = new Schema({
   hotelId: {

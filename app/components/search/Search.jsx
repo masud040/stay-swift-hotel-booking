@@ -31,7 +31,7 @@ const Search = ({ fromList, destination, checkin, checkout }) => {
 
   function doSearch() {
     const params = new URLSearchParams(searchParams);
-    params.set("destination", searchTerm.destination);
+    params.set("destination", searchTerm.destination || "all");
     if (searchTerm?.checkin && searchTerm?.checkout) {
       params.set("checkin", searchTerm.checkin);
       params.set("checkout", searchTerm.checkout);

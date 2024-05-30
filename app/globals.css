@@ -36,7 +36,7 @@
   }
 
   .search-btn:disabled {
-    @apply bg-gray-400;
+    @apply bg-gray-400 cursor-default;
   }
 
   .btn-primary {
