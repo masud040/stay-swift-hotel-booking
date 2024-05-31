@@ -42,6 +42,9 @@
   .btn-primary {
     @apply block px-8 py-2 font-bold text-white transition-all rounded-md shadow-lg bg-primary hover:shadow-primary/50 active:scale-95;
   }
+  .btn-disabled {
+    @apply block px-8 py-2 font-bold text-white transition-all bg-gray-400 rounded-md shadow-none cursor-default hover:shadow-none;
+  }
 
   #searchParams {
     @apply bg-white w-full h-full py-10 lg:py-12 px-6 lg:px-8 rounded-xl border border-black/10 shadow-lg lg:flex items-center [&>*]:flex-1 [&>*]:px-4 [&>div>span]:mb-3 space-y-5 lg:space-y-0;

@@ -39,6 +39,7 @@ async function getAllHotels(destination, checkin, checkout) {
   return replaceMongoIdArray(allHotels);
 }
 async function findBooking(hotelId, checkin, checkout) {
+  await connectMongo();
   const matches = await BookingModel.find({
     hotelId: hotelId.toString(),
   }).lean();
@@ -66,11 +67,19 @@ async function getRatingsForAHotel(hotelId) {
   return replaceMongoIdArray(ratings);
 }
 
-async function getHotelById(hotelId) {
+async function getHotelById(hotelId, checkin, checkout) {
   await connectMongo();
-  const hotel = await HotelModel.findOne({
-    _id: hotelId,
-  }).lean();
+  const hotel = await HotelModel.findById(hotelId).lean();
+  if (checkin && checkout) {
+    const found = await findBooking(hotel._id, checkin, checkout);
+
+    if (found) {
+      hotel["isBooked"] = true;
+    } else {
+      hotel["isBooked"] = false;
+    }
+  }
+
   return replaceMongoId(hotel);
 }
 

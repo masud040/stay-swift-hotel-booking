@@ -1,4 +1,4 @@
-const PaymentForm = () => {
+const PaymentForm = ({ checkin, checkout }) => {
   return (
     <form className="my-8">
       <div className="my-4 space-y-2">
@@ -26,14 +26,14 @@ const PaymentForm = () => {
       <div className="my-4 space-y-2">
         <span>Check in</span>
         <h4 className="mt-2">
-          <input type="date" name="checkin" id="checkin" />
+          <input value={checkin} type="date" name="checkin" id="checkin" />
         </h4>
       </div>
 
       <div className="my-4 space-y-2">
         <span>Checkout</span>
         <h4 className="mt-2">
-          <input type="date" name="checkout" id="checkout" />
+          <input value={checkout} type="date" name="checkout" id="checkout" />
         </h4>
       </div>
 
@@ -70,7 +70,7 @@ const PaymentForm = () => {
         />
       </div>
 
-      <button type="submit" className="btn-primary w-full">
+      <button type="submit" className="w-full btn-primary">
         Pay Now ($10)
       </button>
     </form>

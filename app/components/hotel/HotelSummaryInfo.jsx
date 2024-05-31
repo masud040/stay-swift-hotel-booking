@@ -18,6 +18,7 @@ const HotelSummaryInfo = async ({
     thumbNailUrl,
     isBooked,
   } = hotelInfo || {};
+
   let params = "";
   if (checkin && checkout) {
     params = `?checkin=${checkin}&checkout=${checkout}`;
@@ -55,7 +56,12 @@ const HotelSummaryInfo = async ({
             Details
           </Link>
         ) : (
-          <button className="btn-primary ">Book</button>
+          <Link
+            href={isBooked ? "#" : `${id}/payment${params}`}
+            className={isBooked ? "btn-disabled" : "btn-primary"}
+          >
+            Book
+          </Link>
         )}
       </div>
     </>
